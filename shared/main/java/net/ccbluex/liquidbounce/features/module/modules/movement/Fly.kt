@@ -194,7 +194,7 @@ class Fly : Module() {
                         mc.netHandler.addToSendQueue(classProvider.createCPacketPlayerPosition(thePlayer.posX, thePlayer.posY, thePlayer.posZ, true))
                     }
 
-                    var fallDistance = 3.0125 //add 0.0125 to ensure we get the fall dmg
+                    var fallDistance = 3.0250 //add 0.0250 to ensure we get the fall dmg
 
                     while (fallDistance > 0) {
                         mc.netHandler.addToSendQueue(classProvider.createCPacketPlayerPosition(thePlayer.posX, thePlayer.posY + 0.0624986421, thePlayer.posZ, false))
@@ -210,7 +210,7 @@ class Fly : Module() {
 
                     thePlayer.posY += 0.42f // Visual
                     boostHypixelState = 1
-                    moveSpeed = 0.1
+                    moveSpeed = 0.3
                     lastDistance = 0.0
                     failedStart = false
                 }
