@@ -95,6 +95,7 @@ class Fly : Module() {
 
     // Hypixel
     private val hypixelBoost = BoolValue("Hypixel-Boost", true)
+    private val hypixelBoostSpeed = FloatValue("Hypixel-Speed", 0.2, 0.1, 1)
     private val hypixelBoostDelay = IntegerValue("Hypixel-BoostDelay", 1200, 0, 2000)
     private val hypixelBoostTimer = FloatValue("Hypixel-BoostTimer", 1f, 0f, 5f)
     private val mineplexSpeedValue = FloatValue("MineplexSpeed", 1f, 0.5f, 10f)
@@ -131,7 +132,8 @@ class Fly : Module() {
 
         flyTimer.reset()
         noPacketModify = true
-
+        
+        val damageSpeed = hypixelBoostSpeed.get()
         val x = thePlayer.posX
         val y = thePlayer.posY
         val z = thePlayer.posZ
@@ -210,7 +212,7 @@ class Fly : Module() {
 
                     thePlayer.posY += 0.42f // Visual
                     boostHypixelState = 1
-                    moveSpeed = 0.3
+                    moveSpeed = damageSpeed
                     lastDistance = 0.0
                     failedStart = false
                 }
